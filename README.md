@@ -20,6 +20,8 @@ DB_USER=root
 DB_PASSWORD=your_password
 ```
 
+An empty MySQL database named `hms` must be created manually. The tables will be created automatically by the application.
+
 # Credits
 We would like to give our credits to:
 - The following group members for contributing to this project:
