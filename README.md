@@ -20,3 +20,13 @@ DB_USER=root
 DB_PASSWORD=your_password
 ```
 
+# Credits
+We would like to give our credits to:
+- The following group members for contributing to this project:
+    - [Nguyễn Hải Dương](https://github.com/noeruchangd)
+    - [Nguyễn Lê Hoàng](https://github.com/EspiMKII)
+    - [Nguyễn Đình Phúc](https://github.com/phucnd220104)
+    - [Trần Huy Hoàng](https://github.com/Iry6868)
+- Our beloved professor, Mr. Trần Thế Hùng, for his guidance, support and undying passion for education.
+- The developers of tools, libraries and dependencies used by this project.
+
