@@ -1,4 +1,4 @@
-package app.persons;
+package app.model.persons;
 
 public class Person {
     private int id;

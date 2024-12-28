@@ -1,4 +1,4 @@
-package db.sql;
+package app.controller.sql;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
