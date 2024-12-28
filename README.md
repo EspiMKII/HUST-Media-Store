@@ -15,7 +15,7 @@ Various variables (most notably the database connection credentials) are configu
 Create a .env file in the root directory of the project with the following content:
 
 ```
-DB_URL=jdbc:mysql://localhost:3306/hust_media_store
+DB_URL=jdbc:mysql://localhost:3306/hms
 DB_USER=root
 DB_PASSWORD=your_password
 ```
