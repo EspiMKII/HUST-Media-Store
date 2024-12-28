@@ -1,4 +1,4 @@
-package db.sql;
+package app.controller.sql;
 
 public class DBInitialize {
 
