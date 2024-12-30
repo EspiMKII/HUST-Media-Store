@@ -15,7 +15,7 @@
         -  These preferences could be about a media's type, creator, name, genre, or price.
         -  They can filter the products by these metrics.
     - Staffs can look up their information at the store while at work:
-        - Their registered details at the store: name, starting date of work, position (in this case it would be just a staff), average pay.
+        - Their registered details at the store: name, starting date of work, position (in this case it would be just a staff), salary.
         - Performance metrics: average purchases completed in each session, work sessions done this week/month/year.
     - Staffs must log in at the start of a work session, and confirm and log out at the end of the session.
 
@@ -30,8 +30,8 @@
 - A manager has the following duties and rights relevant to this project during their work sessions at the retail store:
     - They have all features a staff has.
     - They can view the store's staff list:
-        - They can see a list of staffs with simple details for each one: Name, position, and last logged in time. 
-        - They can edit the list (add staff, remove staff, edit details of staff)
+        - They can see a list of staffs and managers with the registered details of each one: Name, starting date of work, position, salary.
+        - They can edit the list (add staff, remove staff, edit registered details of staff)
     - They can view the financial details of the store, which should include:
         - Revenue history, per month. (graphs)
         - Expenses history. (we won't go into details of expenses, we're just going to list out how much money is spent during a month)
