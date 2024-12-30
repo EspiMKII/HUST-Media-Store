@@ -1,4 +1,4 @@
-<h1 align="center" style="font-size:24px;">ACCOUNT HIEARCHY</h1>
+<h1 align="center" style="font-size:24px;">ACCOUNT HIERARCHY</h1>
 
 **<span style="font-size:18px;">Basics:</span>**
 - The management system will have 2 modules:

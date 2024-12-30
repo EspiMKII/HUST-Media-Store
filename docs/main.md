@@ -5,6 +5,10 @@
 **<span style="font-size:18px;">Introduction</span>**
 - This section provides an overview of the project's purpose, scope, and key features. It aims to give readers a clear understanding of what to expect from the documentation.
 
+- For the images in the docs in the "UIs" folder, just because a cell of a table is blank, doesn't mean it should be empty. Please use your common sense and notice that the entries of each table need to be filled accordingly. For example, in the image for the Cart subtab in [Purchase Screen](UIs/purchase-screen.md), the Name, Qty. and Price fields of each row should be filled accordingly.
+
+- For starters, check out [Account Hierarchy](account-hierarchy.md).
+
 **<span style="font-size:18px;">Purpose</span>**
 - The project is made for the 152626 Object-Oriented Programming class in semester 1/2024 of HUST.
 - The aimed readers of these documentations are mostly ourselves, the developers. As such, admittedly, the structure of the docs will be quite random, as I'm just spewing whatever is up on my mind first. I am sorry for this inconvenience.
