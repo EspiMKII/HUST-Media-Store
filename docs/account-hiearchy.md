@@ -16,8 +16,7 @@
         -  They can filter the products by these metrics.
     - Staffs can look up their information at the store while at work:
         - Their registered details at the store: name, starting date of work, position (in this case it would be just a staff), average pay.
-        - Their work schedule and assignments. Each of these can be marked as uncompleted, completed, or completed late.
-        - Performance metrics: work sessions history (starting time and duration, possibly visualized in graphs), purchases completed in each session, average work time, and average purchases completed per session.
+        - Performance metrics: average purchases completed in each session, work sessions done this week/month/year.
     - Staffs must log in at the start of a work session, and confirm and log out at the end of the session.
 
 - Based on these requirements, we map out the following features of a staff's log in sessions:
@@ -36,6 +35,7 @@
     - They can view the financial details of the store, which should include:
         - Revenue history, per month. (graphs)
         - Expenses history. (we won't go into details of expenses, we're just going to list out how much money is spent during a month)
+        - Profit history. (Profit = Revenue - Expenses)
     - They can view the store's product list:
         - They can see a list of products with full details of each product.
         - They can filter the products by different metrics.
