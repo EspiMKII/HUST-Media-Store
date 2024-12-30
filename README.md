@@ -20,7 +20,9 @@ DB_USER=root
 DB_PASSWORD=your_password
 ```
 
-An empty MySQL database named `hms` must be created manually. The tables will be created automatically by the application.
+An example has been provided in the .env.example file, in src/main/resources. Rename the file to .env and input your own values.
+
+An empty MySQL database named `hms` must be created manually. The tables will be created automatically by the application when it is run for the first time.
 
 # Credits
 We would like to give our credits to:
