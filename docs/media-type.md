@@ -9,7 +9,7 @@ Since we are on quite a limited space budget, and since this is a management sys
 The features of a book include:
 - The title
 - The author(s)
-- The publication year
+- The publication date
 - The genre
 - The number of pages
 - The language
