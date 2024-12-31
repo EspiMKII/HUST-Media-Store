@@ -1,0 +1,42 @@
+CREATE TABLE IF NOT EXISTS Media (
+    MediaID INT PRIMARY KEY AUTO_INCREMENT,
+    Title LONGTEXT NOT NULL,
+    Author LONGTEXT,
+    Category TINYTEXT,
+    Length INT,
+    StockCost DOUBLE NOT NULL,
+    SaleCost DOUBLE NOT NULL,
+    Type ENUM('BOOK', 'DVD', 'CD') NOT NULL,
+    Count INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Tracks (
+    TrackID INT PRIMARY KEY AUTO_INCREMENT,
+    MediaID INT,
+    Title LONGTEXT NOT NULL,
+    Length INT,
+    FOREIGN KEY (MediaID) REFERENCES media(MediaID)
+);
+
+CREATE TABLE IF NOT EXISTS Persons (
+    PersonID INT PRIMARY KEY AUTO_INCREMENT,
+    Name TINYTEXT NOT NULL,
+    Email TINYTEXT NOT NULL,
+    Phone MEDIUMINT NOT NULL,
+    Perms ENUM('EMPLOYEE', 'MANAGER', 'ADMIN') NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Transactions (
+    TransactionID INT PRIMARY KEY AUTO_INCREMENT,
+    Description LONGTEXT,
+    Type ENUM('Sale', 'Expense', 'Restock', 'Wage', 'Other'),
+    Amount INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS EntryEvents (
+    EventID INT PRIMARY KEY AUTO_INCREMENT,
+    PersonID INT NOT NULL,
+    Time TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
