@@ -7,7 +7,7 @@
 
 - For the images in the docs in the "UIs" folder, just because a cell of a table is blank, doesn't mean it should be empty. Please use your common sense and notice that the entries of each table need to be filled accordingly. For example, in the image for the Cart subtab in [Purchase Screen](UIs/purchase-screen.md), the Name, Qty. and Price fields of each row should be filled accordingly.
 
-- For starters, check out [Account Hierarchy](account-hierarchy.md).
+- For starters, check out [Reading Flow](reading-flow.md).
 
 **<span style="font-size:18px;">Purpose</span>**
 - The project is made for the 152626 Object-Oriented Programming class in semester 1/2024 of HUST.
