@@ -7,31 +7,34 @@ Since we are on quite a limited space budget, and since this is a management sys
 **<span style="font-size:18px;">BOOK</span>**
 
 The features of a book include:
-- The title
-- The author(s)
-- The publication year
-- The genre
-- The number of pages
-- The language
+- (String) The title
+- (list of Strings) The author(s)
+- (Date) The publication date
+- (list of Strings) The genres
+- (long) The number of pages
+- (String) The language
+- (float) The price
 
 **<span style="font-size:18px;">DVD</span>**
 
 The features of a DVD include:
-- The title
-- The creator(s)
-- The release date
-- The genre
-- The length of the DVD
-- The language
+- (String) The title
+- (list of Strings) The creator(s)
+- (Date) The release date
+- (list of Strings) The genres
+- (long) The length of the DVD
+- (String) The language
+- (Float) The price
 
 **<span style="font-size:18px;">CD</span>**
 
 The features of a CD include:
-- The title
-- The creator(s)
-- The release date
-- The genre
-- The tracks of the CD. Each track includes:
-  - the title
-  - the length
-- the language
+- (String) The title
+- (list of Strings) The creator(s)
+- (Date) The release date
+- (list of Strings) The genres
+- (HashMap of title - length) The tracks of the CD. Each track includes:
+  - (String) The title, used as key
+  - (long) The length, used as value
+- (String) The language
+- (Float) The price

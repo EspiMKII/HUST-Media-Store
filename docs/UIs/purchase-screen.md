@@ -19,6 +19,7 @@ The shades of gray are just to visualize what tabs we are not on here.
             Note that this editing screen is just an example for the Book media type. Please change this screen accordingly for the CD and DVD media types.
         - The attributes should not be editable.
         - After the staff presses "Confirm", the attribute view should close.
+        - Special case: the tracks of a CD is a HashMap of title - length pairs. We could make a scrollable list to display this.
     - The "Find" button, upon click, prompts us with a menu to filter the entries viewed:
         ![Store Viewer Filters](purchase-screen_store-viewer_filters.png)
         - The filters that the staff types in this filter menu should be kept until they close the store viewer menu.
