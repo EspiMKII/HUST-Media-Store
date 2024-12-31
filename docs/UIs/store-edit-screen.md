@@ -19,5 +19,6 @@ The shades of gray are just to visualize what tabs we are not on here.
 
 - The "Find" button, upon click, prompts us with a menu to filter the entries viewed:
     ![Store Edit Filters](manager_store-edit_filters.png)
-     - The filters that the manager types in this filter menu should be kept until they close the store viewer menu.
+    - The filters that the manager types in this filter menu should be kept until they close the store viewer menu.
+    - Special case: the tracks of a CD is a HashMap of title - length pairs. We could make a scrollable list to display this.
     - After the manager enters some filters and presses "Confirm", the scrollable list of entries in the store viewer should be shrunk accordingly.
