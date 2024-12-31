@@ -13,3 +13,5 @@ This document gives a general flow of how this series of documentations should b
     5. [Store Edit Screen](UIs/store-edit-screen.md)
     
     Note that the screens described from 2 to 5 should actually just be different tabs in 1 screen (that is, the application shouldn't open another screen when the user switches tabs)
+
+    6. [Data Tables Required](data.md)
