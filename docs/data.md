@@ -9,6 +9,10 @@ Based on what we have planned so far, we need the following tables:
     - (Date) starting date of work
     - (String) position
     - (float) salary
+    - (long) purchases registered
+    - (int) login sessions completed
+    - (int) average purchases done per session = login sessions completed / purchases registered
+    - (long) work sessions done this week/month/year (should be 3 attributes)
 
     This means the feature to check for login credentials should check data from this table. 
 
