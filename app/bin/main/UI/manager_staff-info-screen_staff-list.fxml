@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="38.0" layoutY="68.0" mnemonicParsing="false" text="Register Purchase" />
+      <Button layoutX="160.0" layoutY="68.0" mnemonicParsing="false" text="Staff INfo" />
+      <Button layoutX="256.0" layoutY="68.0" mnemonicParsing="false" text="Financial Detail" />
+      <Button layoutX="371.0" layoutY="68.0" mnemonicParsing="false" text="Store" />
+      <Button layoutX="451.0" layoutY="68.0" mnemonicParsing="false" text="Log out" />
+      <TableView layoutX="38.0" layoutY="113.0" prefHeight="200.0" prefWidth="531.0">
+        <columns>
+          <TableColumn prefWidth="103.20001220703125" text="Name" />
+          <TableColumn prefWidth="88.79998779296875" text="Starting Date" />
+            <TableColumn prefWidth="136.7999267578125" text="Position" />
+            <TableColumn prefWidth="203.19989013671875" text="Salary" />
+        </columns>
+      </TableView>
+      <Button layoutX="64.0" layoutY="338.0" mnemonicParsing="false" text="Registered Detail" />
+      <Button layoutX="209.0" layoutY="338.0" mnemonicParsing="false" text="Performance Metrics" />
+      <Button layoutX="371.0" layoutY="338.0" mnemonicParsing="false" text="Staff List" />
+      <Text layoutX="10.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HUST MEDIA STORE" />
+   </children>
+</AnchorPane>
