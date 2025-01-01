@@ -8,8 +8,3 @@ build
 
 # Ignore env files
 *.env
-# Ignore Visual Studio Code settings
-.vscode
-
-# Ignore Gradle properties file
-gradle.properties
