@@ -51,6 +51,37 @@ public class DBInterface {
         }
     }
 
+    public static String pullTable(String table) {
+        try (Connection con = DBInterface.getConnection();
+             Statement stmt = con.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT * FROM %s".formatted(table))) {
+
+            StringBuilder result = new StringBuilder();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+
+            // Append column names
+            for (int i = 1; i <= columnsNumber; i++) {
+                result.append(rsmd.getColumnName(i)).append(", ");
+            }
+            result.append("\n");
+
+            // Append rows
+            while (rs.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1) result.append(", ");
+                    String columnValue = rs.getString(i);
+                    result.append(columnValue);
+                }
+                result.append("\n");
+            }
+            return result.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+
+    }
     public DBInterface() {
     }
 }

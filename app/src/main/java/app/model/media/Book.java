@@ -1,4 +1,4 @@
-package media;
+package app.model.media;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,6 +13,8 @@ public class Book extends Media {
     public void setPages(long pages) {
         this.pages = pages;
     }
+
+
 
     public Book(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language,
                 float price, long pages) {

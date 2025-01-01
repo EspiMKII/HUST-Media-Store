@@ -3,6 +3,12 @@
  */
 package app;
 import app.controller.sql.DBInitialize;
+import app.controller.sql.DBInterface;
+import app.model.credentials_info.Customer;
+import app.model.store.Store;
+import app.test.StoreTest;
+
+import java.util.ArrayList;
 
 public class Main {
     public String getGreeting() {
@@ -13,10 +19,19 @@ public class Main {
         try {
             DBInitialize db = new DBInitialize();
             db.initializeDatabase();
+            System.out.println(DBInterface.pullTable("customer"));
+
+            Store store = StoreTest.test();
+
+            System.out.println(store.getMedia().toString());
+
+
+
         }
         catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
+
     }
 }

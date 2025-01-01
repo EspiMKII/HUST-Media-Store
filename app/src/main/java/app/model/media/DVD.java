@@ -1,4 +1,4 @@
-package media;
+package app.model.media;
 
 import java.util.ArrayList;
 import java.util.Date;

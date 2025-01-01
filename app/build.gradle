@@ -35,6 +35,7 @@ dependencies {
 }
 
 javafx {
+    version = "23.0.1"
     // Define the JavaFX modules required.
     modules = [
         'javafx.base',
@@ -72,3 +73,4 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+

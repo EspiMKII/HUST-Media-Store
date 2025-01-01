@@ -1,8 +1,20 @@
-package credentials_info;
+package app.model.credentials_info;
+
+import app.model.store.Store;
 
 import java.util.Date;
 
 public class Staff {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String email;
     private String password;
 
@@ -13,7 +25,7 @@ public class Staff {
 
     private long purchasesRegistered;
     private int sessionsCompleted;
-    private int avgPurchasesPerSession; // the 2 previous variables are used to calculate this one, which is why they won't have getters and setters
+    private float avgPurchasesPerSession;; // the 2 previous variables are used to calculate this one, which is why they won't have getters and setters
     private long[] sessionsDone = new long[3]; // purchases sessions done this week, this month, and this year
 
     private Boolean managerPerm = false;
@@ -56,7 +68,21 @@ public class Staff {
         return salary;
     }
 
-    public int getAvgPurchasesPerSession() {
+    public long getPurchasesRegistered() {
+        return purchasesRegistered;
+    }
+    public void setPurchasesRegistered(long purchasesRegistered) {
+        this.purchasesRegistered = purchasesRegistered;
+    }
+    public int getSessionsCompleted() {
+        return sessionsCompleted;
+    }
+    public void setSessionsCompleted(int sessionsCompleted) {
+        this.sessionsCompleted = sessionsCompleted;
+    }
+
+    public float getAvgPurchasesPerSession() {
+        avgPurchasesPerSession = (float) purchasesRegistered / sessionsCompleted;
         return avgPurchasesPerSession;
     }
     public void setAvgPurchasesPerSession(int avgPurchasesPerSession) {
@@ -92,4 +118,4 @@ public class Staff {
         this.avgPurchasesPerSession = (int) (purchasesRegistered / sessionsCompleted);
         this.sessionsDone = sessionsDone;
     }
-}   
+}
