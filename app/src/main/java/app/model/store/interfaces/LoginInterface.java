@@ -9,21 +9,22 @@ public class LoginInterface {
         if (store.searchStaffByEmail(email) == null) {
             System.out.println("User does not exist");
             return null;
-        }
-        else {
-        if (password.equals(store.searchStaffByEmail(email).getPassword())) {
-            if (store.searchStaffByEmail(email).isManager()) {
-                System.out.println("Login successful as manager");
-                return new ManagerInterface(store.searchStaffByEmail(email));
-
-            } else {
-                System.out.println("Login successful as staff");
-                return new StaffInterface(store.searchStaffByEmail(email));
-            }
         } else {
-            System.out.println("Login failed");
-            return null;
-        }
+            if (password.equals(store.searchStaffByEmail(email).getPassword())) {
+                if (store.searchStaffByEmail(email).isManager()) {
+                    System.out.println("Login successful as manager");
+                    store.searchStaffByEmail(email).addSession();
+                    return new ManagerInterface(store.searchStaffByEmail(email));
+                } else {
+                    System.out.println("Login successful as staff");
+                    store.searchStaffByEmail(email).addSession();
+                    return new StaffInterface(store.searchStaffByEmail(email));
+                }
+            } else {
+                System.out.println("Login failed");
+                return null;
+            }
         }
     }
+
 }

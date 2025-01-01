@@ -1,9 +1,11 @@
-package app.model.credentials_info;
+package app.model.items;
+
+import java.util.Objects;
 
 public class Customer {
     private int id;
     private String name;
-    private long phoneNumber;
+    private int phoneNumber;
     private int points;
     
     public String getName() {
@@ -12,10 +14,10 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
-    public long getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     public int getPoints() {
@@ -33,9 +35,16 @@ public class Customer {
     public void setPoints(int points) {
         this.points = points;
     }
-    public Customer(String name, long phoneNumber, int points) {
+    public Customer(String name, int phoneNumber, int points) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.points = points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return phoneNumber == customer.phoneNumber && Objects.equals(name, customer.name);
     }
 }

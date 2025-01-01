@@ -1,6 +1,6 @@
 package app.model.store;
 
-import app.model.credentials_info.*;
+import app.model.items.*;
 import app.model.media.*;
 
 import java.util.ArrayList;
@@ -58,6 +58,7 @@ public class Store {
         return null;
     }
 
+
     public ArrayList<Staff> getStaff() {
         return staff;
     }
@@ -98,9 +99,9 @@ public class Store {
                 if (staff.getEmail().equals(email)) {
                     return staff;
                 }
-                return null;
             }
         }
         return null;
     }
+
 }

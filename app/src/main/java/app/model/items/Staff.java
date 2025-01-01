@@ -1,6 +1,4 @@
-package app.model.credentials_info;
-
-import app.model.store.Store;
+package app.model.items;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -88,8 +86,11 @@ public class Staff {
     public int[] getSessionsDone() {
         return sessionsDone;
     }
-    public void setSessionsDone(int[] sessionsDone) {
-        this.sessionsDone = sessionsDone;
+    public void addSession() {
+        (this.sessionsDone[0])++;
+        (this.sessionsDone[1])++;
+        (this.sessionsDone[2])++;
+        (this.sessionsCompleted)++;
     }
 
     public Boolean getManagerPerm() {
@@ -132,6 +133,10 @@ public class Staff {
 
         this.purchasesRegistered = purchasesRegistered;
         this.sessionsCompleted = sessionsCompleted;
+        this.sessionsDone = sessionsDone;
+    }
+
+    public void setSessionsDone(int[] sessionsDone) {
         this.sessionsDone = sessionsDone;
     }
 }

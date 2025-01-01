@@ -1,6 +1,6 @@
 package app.model.store;
 
-import app.model.credentials_info.Customer;
+import app.model.items.Customer;
 import app.model.media.Media;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class Cart {
         }
     }
 
-    private void removeItem(Media item) {
+    public void removeItem(Media item) {
         itemsOrdered.remove(item);
         itemCount--;
         totalPrice -= item.getPrice();
@@ -47,7 +47,7 @@ public class Cart {
     }
 
     public float getTotalPrice() {
-        return totalPrice;
+        return totalPrice*(1- (float) customer.getPoints() /1000);
     }
 
     public Customer getCustomer() {

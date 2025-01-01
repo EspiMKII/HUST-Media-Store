@@ -28,6 +28,8 @@ dependencies {
     implementation libs.guava
     implementation 'com.opencsv:opencsv:5.9'
     implementation 'io.github.cdimascio:dotenv-java:3.1.0'
+    implementation 'org.openjfx:javafx-controls:23.0.1'
+    implementation 'org.openjfx:javafx-fxml:23.0.1'
 
     // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
     implementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.1.0'

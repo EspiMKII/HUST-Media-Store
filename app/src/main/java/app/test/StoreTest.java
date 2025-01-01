@@ -1,9 +1,10 @@
 package app.test;
 
-import app.model.credentials_info.Customer;
+import app.model.items.Customer;
 import app.model.media.*;
-import app.model.credentials_info.*;
+import app.model.items.*;
 import app.model.store.Store;
+import app.model.store.Finances;
 
 import java.util.*;
 
@@ -73,8 +74,11 @@ public class StoreTest {
         ArrayList<Staff> staff = new ArrayList<>();
 
         Staff staff1 = new Staff("john@hms.com", "password", "John", new Date(2024, Calendar.JANUARY, 2024), "Staff", 232, 0, 0, new int[] {1,1,1});
+        Manager manager1 = new Manager("josh@hms.com", "password", "John", new Date(2024, Calendar.JANUARY, 2024), "Staff", 232, 0, 0, new int[] {1,1,1});
+
 
         staff.add(staff1);
+        staff.add(manager1);
 
         ArrayList<Finances> finances = new ArrayList<>();
 

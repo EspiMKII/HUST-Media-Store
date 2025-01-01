@@ -1,6 +1,6 @@
 package app.model.store.interfaces.human;
 
-import app.model.credentials_info.Staff;
+import app.model.items.Staff;
 import app.model.media.Media;
 import app.model.store.Cart;
 import app.model.store.Store;

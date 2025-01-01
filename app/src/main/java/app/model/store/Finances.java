@@ -1,4 +1,4 @@
-package app.model.credentials_info;
+package app.model.store;
 
 public class Finances {
     private int id;

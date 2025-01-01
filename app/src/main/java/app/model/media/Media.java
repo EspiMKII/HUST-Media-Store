@@ -1,85 +1,77 @@
 package app.model.media;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleFloatProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Media {
-    private int id;
-    private String title;
-    private ArrayList<String> creators;
-    private Date releaseDate;
-    private ArrayList<String> genres;
-    private String language;
-    private float price;
+public abstract class Media {
+    private SimpleStringProperty title;
+    private SimpleFloatProperty price;
+    private SimpleStringProperty type;
+    private SimpleIntegerProperty year;
+    private SimpleStringProperty genre;
+    private SimpleStringProperty language;
 
-    public Media(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres,
-            String language, float price) {
-        this.title = title;
-        this.creators = creators;
-        this.releaseDate = releaseDate;
-        this.genres = genres;
-        this.language = language;
-        this.price = price;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public ArrayList<String> getCreators() {
-        return creators;
-    }
-
-    public void setCreators(ArrayList<String> creators) {
-        this.creators = creators;
-    }
-
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public ArrayList<String> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(ArrayList<String> genres) {
-        this.genres = genres;
+    public Media(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language, float price) {
+        this.title = new SimpleStringProperty(title);
+        this.price = new SimpleFloatProperty(price);
+        this.type = new SimpleStringProperty(this.getClass().getSimpleName().toLowerCase());
+        this.year = new SimpleIntegerProperty(releaseDate.getYear() + 1900); // Adjust for Date year offset
+        this.genre = new SimpleStringProperty(String.join(", ", genres));
+        this.language = new SimpleStringProperty(language);
     }
 
     public String getLanguage() {
+        return language.get();
+    }
+
+    public SimpleStringProperty languageProperty() {
         return language;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+
+    public String getTitle() {
+        return title.get();
+    }
+
+
+    public SimpleStringProperty titleProperty() {
+        return title;
     }
 
     public float getPrice() {
+        return price.get();
+    }
+
+    public SimpleFloatProperty priceProperty() {
         return price;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public String getType() {
+        return type.get();
     }
 
+    public SimpleStringProperty typeProperty() {
+        return type;
+    }
 
+    public int getYear() {
+        return year.get();
+    }
 
+    public SimpleIntegerProperty yearProperty() {
+        return year;
+    }
 
+    public String getGenre() {
+        return genre.get();
+    }
 
+    public SimpleStringProperty genreProperty() {
+        return genre;
+    }
 }

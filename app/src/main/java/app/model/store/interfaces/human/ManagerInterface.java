@@ -1,7 +1,7 @@
 package app.model.store.interfaces.human;
 
-import app.model.credentials_info.Finances;
-import app.model.credentials_info.Staff;
+import app.model.store.Finances;
+import app.model.items.Staff;
 import app.model.store.Store;
 import app.model.media.*;
 import java.util.ArrayList;

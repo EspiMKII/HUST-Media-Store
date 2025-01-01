@@ -1,8 +1,9 @@
 package app.controller.init;
 
 import app.model.media.*;
-import app.model.credentials_info.*;
+import app.model.items.*;
 import app.model.store.*;
+import app.model.store.Finances;
 
 import java.util.ArrayList;
 
