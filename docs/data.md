@@ -19,6 +19,7 @@ Based on what we have planned so far, we need the following tables:
 2. Table for customer accounts' credentials. The attributes of this table are:
     - (String) name: the name of the customer (duh)
     - (long) phone number: since Java doesn't store longs with leading 0's, we can use country code as the beginning of the phone numbers i.e. 84962123456 (here, the leading 84 is the country code for Vietnam).
+    - (long) points accumulated.
 
 3. Table for financial details. The attributes of this table are:
     - (String) month: should be "mm/yyyy" i.e. "05/2024". We don't really need to use the Date data type here since this information is purely going to be used to create charts.
