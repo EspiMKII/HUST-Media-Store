@@ -1,4 +1,4 @@
-package media;
+package app.model.media;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,5 +68,7 @@ public class Media {
     public void setPrice(float price) {
         this.price = price;
     }
-    
+
+
+
 }

@@ -1,4 +1,4 @@
-package credentials_info;
+package app.model.credentials_info;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package UI;
+package app.view.UI;
 
 public class LoginMenu {
     
