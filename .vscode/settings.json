@@ -1,0 +1,6 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+
+    "java.jdt.ls.java.home": "D:\\JDKs - JREs\\graalvm-jdk-23.0.1+11.1"
+}
