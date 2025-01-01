@@ -53,8 +53,8 @@ public class Cart {
         this.customer = customer;
     }
 
-    public void pointsEarned() {
-        // TODO: implement points system
+    public int pointsEarned() {
+        return (int) totalPrice / 10;
     }
 
 

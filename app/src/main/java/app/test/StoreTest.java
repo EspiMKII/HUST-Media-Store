@@ -5,9 +5,7 @@ import app.model.media.*;
 import app.model.credentials_info.*;
 import app.model.store.Store;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class StoreTest {
     public static Store test() {
@@ -26,18 +24,26 @@ public class StoreTest {
         ArrayList<Media> media = new ArrayList<>();
 
         // Example instantiation of Book objects
-        Book book1 = new Book("The Great Gatsby", new ArrayList<>(List.of("F. Scott Fitzgerald")), new Date(1925-1900, 0, 1), new ArrayList<>(List.of("Fiction")), "English", 10.99f, 123);
-        Book book2 = new Book("1984", new ArrayList<>(List.of("George Orwell")), new Date(1949-1900, 0, 1), new ArrayList<>(List.of("Dystopian")), "English", 8.99f, 456);
-        Book book3 = new Book("To Kill a Mockingbird", new ArrayList<>(List.of("Harper Lee")), new Date(1960-1900, 0, 1), new ArrayList<>(List.of("Fiction")), "English", 7.99f, 789);
-        Book book4 = new Book("Moby Dick", new ArrayList<>(List.of("Herman Melville")), new Date(1851-1900, 0, 1), new ArrayList<>(List.of("Adventure")), "English", 9.99f, 101);
+        Book book1 = new Book("The Great Gatsby", new ArrayList<>(List.of("F. Scott Fitzgerald")), new Date(1925, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 10.99f, 123);
+        Book book2 = new Book("To Kill a Mockingbird", new ArrayList<>(List.of("Harper Lee")), new Date(1960, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 11.99f, 281);
+        Book book3 = new Book("1984", new ArrayList<>(List.of("George Orwell")), new Date(1949, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 12.99f, 328);
+        Book book4 = new Book("The Catcher in the Rye", new ArrayList<>(List.of("J.D. Salinger")), new Date(1951, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 13.99f, 214);
+
 
         // Example instantiation of CD object
+        CD cd1 = new CD("The Dark Side of the Moon", new ArrayList<>(List.of("Pink Floyd")), new Date(1973, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 14.99f, (Map.of("Speak to Me", 90, "Breathe", 163, "On the Run", 216, "Time", 421, "The Great Gig in the Sky", 276, "Money", 382, "Us and Them", 462, "Any Colour You Like", 205, "Brain Damage", 228, "Eclipse", 123)));
+        CD cd2 = new CD("Back in Black", new ArrayList<>(List.of("AC/DC")), new Date(1980, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 15.99f,  (Map.of("Hells Bells", 312, "Shoot to Thrill", 311, "What Do You Do for Money Honey", 203, "Givin the Dog a Bone", 215, "Let Me Put My Love into You", 246, "Back in Black", 254, "You Shook Me All Night Long", 210, "Have a Drink on Me", 225, "Shake a Leg", 242, "Rock and Roll Ain't Noise Pollution", 252)));
+        CD cd3 = new CD("Led Zeppelin IV", new ArrayList<>(List.of("Led Zeppelin")), new Date(1971, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 16.99f, (Map.of("Black Dog", 296, "Rock and Roll", 220, "The Battle of Evermore", 351, "Stairway to Heaven", 482, "Misty Mountain Hop", 278, "Four Sticks", 284, "Going to California", 215, "When the Levee Breaks", 427)));
+
 
         // Example instantiation of DVD objects
-        DVD dvd1 = new DVD("The Shawshank Redemption", new ArrayList<>(List.of("Frank Darabont")), new Date(1994-1900, 0, 1), new ArrayList<>(List.of("Drama")), "English", 17.99f, 142);
-        DVD dvd2 = new DVD("The Godfather", new ArrayList<>(List.of("Francis Ford Coppola")), new Date(1972-1900, 0, 1), new ArrayList<>(List.of("Crime", "Drama")), "English", 18.99f, 175);
-        DVD dvd3 = new DVD("The Dark Knight", new ArrayList<>(List.of("Christopher Nolan")), new Date(2008-1900, 0, 1), new ArrayList<>(List.of("Action", "Crime", "Drama")), "English", 19.99f, 152);
-        DVD dvd4 = new DVD("Pulp Fiction", new ArrayList<>(List.of("Quentin Tarantino")), new Date(1994-1900, 0, 1), new ArrayList<>(List.of("Crime", "Drama")), "English", 20.99f, 154);
+
+        DVD dvd1 = new DVD("The Shawshank Redemption", new ArrayList<>(List.of("Frank Darabont")), new Date(1994, Calendar.JANUARY, 1), new ArrayList<>(List.of("Drama")), "English", 17.99f, 142);
+        DVD dvd2 = new DVD("The Godfather", new ArrayList<>(List.of("Francis Ford Coppola")), new Date(1972, Calendar.JANUARY, 1), new ArrayList<>(List.of("Drama")), "English", 18.99f, 175);
+        DVD dvd3 = new DVD("The Dark Knight", new ArrayList<>(List.of("Christopher Nolan")), new Date(2008, Calendar.JANUARY, 1), new ArrayList<>(List.of("Action")), "English", 19.99f, 152);
+        DVD dvd4 = new DVD("Pulp Fiction", new ArrayList<>(List.of("Quentin Tarantino")), new Date(1994, Calendar.JANUARY, 1), new ArrayList<>(List.of("Crime")), "English", 20.99f, 154);
+
+
 
         media.add(book1);
         media.add(book2);

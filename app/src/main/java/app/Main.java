@@ -23,7 +23,7 @@ public class Main {
 
             Store store = StoreTest.test();
 
-            System.out.println(store.getMedia().toString());
+
 
 
 

@@ -25,7 +25,7 @@ public class Staff {
 
     private long purchasesRegistered;
     private int sessionsCompleted;
-    private float avgPurchasesPerSession;; // the 2 previous variables are used to calculate this one, which is why they won't have getters and setters
+     // the 2 previous variables are used to calculate this one, which is why they won't have getters and setters
     private long[] sessionsDone = new long[3]; // purchases sessions done this week, this month, and this year
 
     private Boolean managerPerm = false;
@@ -82,11 +82,7 @@ public class Staff {
     }
 
     public float getAvgPurchasesPerSession() {
-        avgPurchasesPerSession = (float) purchasesRegistered / sessionsCompleted;
-        return avgPurchasesPerSession;
-    }
-    public void setAvgPurchasesPerSession(int avgPurchasesPerSession) {
-        this.avgPurchasesPerSession = avgPurchasesPerSession;
+        return (float) purchasesRegistered / sessionsCompleted;
     }
     public long[] getSessionsDone() {
         return sessionsDone;
@@ -115,7 +111,6 @@ public class Staff {
 
         this.purchasesRegistered = purchasesRegistered;
         this.sessionsCompleted = sessionsCompleted;
-        this.avgPurchasesPerSession = (int) (purchasesRegistered / sessionsCompleted);
         this.sessionsDone = sessionsDone;
     }
 }
