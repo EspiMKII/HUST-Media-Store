@@ -14,6 +14,8 @@ public class Book extends Media {
         this.pages = pages;
     }
 
+
+
     public Book(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language,
                 float price, long pages) {
         super(title, creators, releaseDate, genres, language, price);
