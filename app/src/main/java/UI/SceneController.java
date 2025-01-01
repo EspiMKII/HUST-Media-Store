@@ -14,7 +14,7 @@ public class SceneController extends Application {
         SceneController.primaryStage = primaryStage;
         primaryStage.setTitle("HUST Media Store");
 
-        switchScene("/UI/purchaseScreenCart.fxml");
+        switchScene("/UI/LoginMenu.fxml");
 
         primaryStage.show();
     }
