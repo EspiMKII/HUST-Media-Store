@@ -14,13 +14,21 @@ public class SceneController extends Application {
         SceneController.primaryStage = primaryStage;
         primaryStage.setTitle("HUST Media Store");
 
-        switchScene("LoginMenu.fxml");
+        switchScene("/UI/purchaseScreenCart.fxml");
 
         primaryStage.show();
     }
 
     public static void switchScene(String fxmlFile) throws Exception {
+        if (primaryStage == null) {
+            throw new IllegalStateException("Primary stage is not initialized.");
+        }
+
         Parent root = FXMLLoader.load(SceneController.class.getResource(fxmlFile));
+        if (root == null) {
+            throw new IllegalArgumentException("FXML file not found: " + fxmlFile);
+        }
+
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
     }

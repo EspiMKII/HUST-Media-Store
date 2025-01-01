@@ -32,6 +32,11 @@ dependencies {
     // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
     implementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.1.0'
 
+    // JavaFX dependencies
+    implementation 'org.openjfx:javafx-base:23'
+    implementation 'org.openjfx:javafx-controls:23'
+    implementation 'org.openjfx:javafx-fxml:23'
+    implementation 'org.openjfx:javafx-graphics:23'
 }
 
 javafx {
