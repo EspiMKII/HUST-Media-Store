@@ -27,6 +27,19 @@ public class Store {
         this.media.remove(media);
     }
 
+    public Media searchMedia(String title) {
+        for (Media media : media) {
+            if (media.getTitle().equals(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    public void addCustomer(Customer customer) {
+        this.customers.add(customer);
+    }
+
 
     public ArrayList<Customer> getCustomers() {
         return customers;
@@ -34,6 +47,15 @@ public class Store {
 
     public void setCustomers(ArrayList<Customer> customers) {
         this.customers = customers;
+    }
+
+    public Customer searchCustomer(String name) {
+        for (Customer customer : customers) {
+            if (customer.getName().equals(name)) {
+                return customer;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Staff> getStaff() {
@@ -57,5 +79,28 @@ public class Store {
         this.customers = customers;
         this.staff = staff;
         this.finances = finances;
+    }
+
+    public Staff searchStaff(String name) {
+        if (name != null) {
+            for (Staff staff : staff) {
+                if (staff.getName().equals(name)) {
+                    return staff;
+                }
+                return null;
+            }
+        }
+        return null;
+    }
+    public Staff searchStaffByEmail(String email) {
+        if (email != null) {
+            for (Staff staff : staff) {
+                if (staff.getEmail().equals(email)) {
+                    return staff;
+                }
+                return null;
+            }
+        }
+        return null;
     }
 }

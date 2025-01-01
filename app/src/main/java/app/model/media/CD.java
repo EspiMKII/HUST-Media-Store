@@ -6,49 +6,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CD extends Media {
-    private Map<String, Integer> tracks;
+    private ArrayList<Track> tracks;
 
-    public Map<String, Integer> getTracks() {
+    public ArrayList<Track> getTracks() {
         return tracks;
     }
-    public void addTrack(String title, int duration) {
-        if (!tracks.containsKey(title)) {
-            tracks.put(title, duration);
-        } else
-        {
-            //implement logic here
-        }
-    }
-    public void removeTrack(String title) {
-        if (tracks.containsKey(title)) {
-            tracks.remove(title);
-        } else
-        {
-            //TODO: implement logic here
-        }
-    }
-    public void editTrackTitle(String oldTitle, String newTitle) {
-        if (tracks.containsKey(oldTitle)) {
-            int duration = tracks.get(oldTitle);
-            tracks.remove(oldTitle);
-            tracks.put(newTitle, duration);
-        } else
-        {
-            //TODO: implement logic here
-        }
-    }
-    public void editTrackLength(String title, int newDuration) {
-        if (tracks.containsKey(title)) {
-            tracks.put(title, newDuration);
-        } else
-        {
-            //TODO: implement logic here
+
+    public void addTrack(Track track) {
+        if (!tracks.contains(track)) {
+            tracks.add(track);
+        } else {
+            System.out.println("Track already exists");
         }
     }
 
-    public CD(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language,
-              float price, Map<String, Integer> tracks) {
+    public void removeTrack(Track track) {
+        if (tracks.contains(track)) {
+            tracks.remove(track);
+        } else {
+            System.out.println("Track does not exist");
+        }
+
+    }
+
+    public CD(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language, float price, ArrayList<Track> tracks) {
         super(title, creators, releaseDate, genres, language, price);
-        this.tracks = new HashMap<>(tracks);
+        this.tracks = tracks;
     }
 }
+
+

@@ -29,11 +29,20 @@ public class StoreTest {
         Book book3 = new Book("1984", new ArrayList<>(List.of("George Orwell")), new Date(1949, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 12.99f, 328);
         Book book4 = new Book("The Catcher in the Rye", new ArrayList<>(List.of("J.D. Salinger")), new Date(1951, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 13.99f, 214);
 
+        Track track1 = new Track("Track 1", 321);
+        Track track2 = new Track("Track 2", 322);
+        Track track3 = new Track("Track 3", 323);
+        Track track4 = new Track("Track 4", 324);
+        Track track5 = new Track("Track 5", 325);
+        Track track6 = new Track("Track 6", 326);
+        Track track7 = new Track("Track 7", 327);
+        Track track8 = new Track("Track 8", 328);
+        Track track9 = new Track("Track 9", 329);
 
         // Example instantiation of CD object
-        CD cd1 = new CD("The Dark Side of the Moon", new ArrayList<>(List.of("Pink Floyd")), new Date(1973, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 14.99f, (Map.of("Speak to Me", 90, "Breathe", 163, "On the Run", 216, "Time", 421, "The Great Gig in the Sky", 276, "Money", 382, "Us and Them", 462, "Any Colour You Like", 205, "Brain Damage", 228, "Eclipse", 123)));
-        CD cd2 = new CD("Back in Black", new ArrayList<>(List.of("AC/DC")), new Date(1980, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 15.99f,  (Map.of("Hells Bells", 312, "Shoot to Thrill", 311, "What Do You Do for Money Honey", 203, "Givin the Dog a Bone", 215, "Let Me Put My Love into You", 246, "Back in Black", 254, "You Shook Me All Night Long", 210, "Have a Drink on Me", 225, "Shake a Leg", 242, "Rock and Roll Ain't Noise Pollution", 252)));
-        CD cd3 = new CD("Led Zeppelin IV", new ArrayList<>(List.of("Led Zeppelin")), new Date(1971, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 16.99f, (Map.of("Black Dog", 296, "Rock and Roll", 220, "The Battle of Evermore", 351, "Stairway to Heaven", 482, "Misty Mountain Hop", 278, "Four Sticks", 284, "Going to California", 215, "When the Levee Breaks", 427)));
+        CD cd1 = new CD("The Dark Side of the Moon", new ArrayList<>(List.of("Pink Floyd")), new Date(1973, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 14.99f, new ArrayList<>(List.of(track1, track2, track3)));
+        CD cd2 = new CD("Back in Black", new ArrayList<>(List.of("AC/DC")), new Date(1980, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 15.99f, new ArrayList<>(List.of(track4, track5, track6)));
+        CD cd3 = new CD("Led Zeppelin IV", new ArrayList<>(List.of("Led Zeppelin")), new Date(1971, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 16.99f, new ArrayList<>(List.of(track7, track8, track9)));
 
 
         // Example instantiation of DVD objects
@@ -56,7 +65,16 @@ public class StoreTest {
         media.add(dvd3);
         media.add(dvd4);
 
+        media.add(cd1);
+        media.add(cd2);
+        media.add(cd3);
+
+
         ArrayList<Staff> staff = new ArrayList<>();
+
+        Staff staff1 = new Staff("john@hms.com", "password", "John", new Date(2024, Calendar.JANUARY, 2024), "Staff", 232, 0, 0, new int[] {1,1,1});
+
+        staff.add(staff1);
 
         ArrayList<Finances> finances = new ArrayList<>();
 
