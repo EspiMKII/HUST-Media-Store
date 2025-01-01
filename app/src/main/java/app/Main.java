@@ -4,11 +4,13 @@
 package app;
 import app.controller.sql.DBInitialize;
 import app.controller.sql.DBInterface;
-import app.model.credentials_info.Customer;
+import app.model.store.Cart;
 import app.model.store.Store;
+import app.model.store.interfaces.LoginInterface;
+import app.model.store.interfaces.human.StaffInterface;
 import app.test.StoreTest;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public String getGreeting() {
@@ -17,16 +19,50 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         try {
+            Scanner scanner = new Scanner(System.in);
             DBInitialize db = new DBInitialize();
             db.initializeDatabase();
             System.out.println(DBInterface.pullTable("customer"));
-
             Store store = StoreTest.test();
+            LoginInterface loginInterface = new LoginInterface();
 
-            System.out.println(store.getMedia().toString());
+            Cart cart = new Cart(store.searchCustomer("John"));
+            cart.addItem(store.searchMedia("The Shawshank Redemption"));
+            cart.addItem(store.searchMedia("The Dark Side of the Moon"));
+            cart.addItem(store.searchMedia("The Great Gatsby"));
+            StaffInterface staffInterface = null;
+            while (staffInterface == null) {
+                String email = "";
+                String password = "";
 
+                System.out.println("Logging in as staff");
+                System.out.println("Enter email: ");
+                if (scanner.hasNextLine()) {
+                    email = scanner.nextLine();
+                    System.out.println(email);
+                }
+                System.out.println("Enter password: ");
+                if (scanner.hasNextLine()) {
+                    password = scanner.nextLine();
+                    System.out.println(password);
+                }
+                staffInterface = LoginInterface.login(store, email, password);
+            }
+            
+            System.out.println("Items in cart: ");
+            for (int i = 0; i < cart.getItemsOrdered().size(); i++) {
+                System.out.println(cart.getItemsOrdered().get(i).getTitle());
+            }
+            System.out.println("Total price: " + cart.getTotalPrice());
+            System.out.println("Points earned: " + cart.pointsEarned());
+            System.out.println("Customer points: " + cart.getCustomer().getPoints());
 
+            staffInterface.checkOut(cart);
 
+            System.out.println("Customer points: " + cart.getCustomer().getPoints());
+            System.out.println("Staff purchases registered: " + staffInterface.returnSelf().getPurchasesRegistered());
+
+            // recommendation is done via UI in the actual application
         }
         catch (Exception e) {
             e.printStackTrace();

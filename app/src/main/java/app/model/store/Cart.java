@@ -11,10 +11,15 @@ public class Cart {
     private float totalPrice;
     private Customer customer;
 
-    private void addItem(Media item) {
-        itemsOrdered.add(item);
-        itemCount++;
-        totalPrice += item.getPrice();
+    public void addItem(Media item) {
+        if (item != null) {
+            itemsOrdered.add(item);
+            itemCount++;
+            totalPrice += item.getPrice();
+        }
+        else {
+            System.out.println("Item is null");
+        }
     }
 
     private void removeItem(Media item) {
@@ -53,8 +58,8 @@ public class Cart {
         this.customer = customer;
     }
 
-    public void pointsEarned() {
-        // TODO: implement points system
+    public int pointsEarned() {
+        return (int) totalPrice / 10;
     }
 
 

@@ -1,5 +1,6 @@
-package app.model.store.interfaces;
+package app.model.store.interfaces.human;
 
+import app.model.credentials_info.Finances;
 import app.model.credentials_info.Staff;
 import app.model.store.Store;
 import app.model.media.*;
@@ -22,7 +23,7 @@ public class ManagerInterface extends StaffInterface {
         return store.getStaff();
     }
 
-    public void modifyStaff(Staff staff, String email, String password, String name, String position, float salary, long purchasesRegistered, int sessionsCompleted, long[] sessionsDone) {
+    public void modifyStaff(Staff staff, String email, String password, String name, String position, float salary, int purchasesRegistered, int sessionsCompleted, int[] sessionsDone) {
         staff.setEmail(email);
         staff.setPassword(password);
         staff.setName(name);
@@ -41,8 +42,10 @@ public class ManagerInterface extends StaffInterface {
         store.removeMedia(media);
     }
 
-    public void viewFinances(Store store) {
-        // TODO: implement viewFinances
+    public ArrayList<Finances> getFinances(Store store) {
+        return store.getFinances();
     }
-
+    public void addFinanceEntry (Store store, Finances finance) {
+        store.getFinances().add(finance);
+    }
 }

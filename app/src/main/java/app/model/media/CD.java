@@ -6,45 +6,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CD extends Media {
-    private Map<String, Long> tracks;
+    private ArrayList<Track> tracks;
 
-    public Map<String, Long> getTracks() {
+    public ArrayList<Track> getTracks() {
         return tracks;
     }
-    public void addTrack(String title, long duration) {
-        if (!tracks.containsKey(title)) {
-            tracks.put(title, duration);
+
+    public void addTrack(Track track) {
+        if (!tracks.contains(track)) {
+            tracks.add(track);
         } else {
-            //implement logic here
-        }
-    }
-    public void removeTrack(String title) {
-        if (tracks.containsKey(title)) {
-            tracks.remove(title);
-        } else {
-            //implement logic here
-        }
-    }
-    public void editTrackTitle(String oldTitle, String newTitle) {
-        if (tracks.containsKey(oldTitle)) {
-            long duration = tracks.get(oldTitle);
-            tracks.remove(oldTitle);
-            tracks.put(newTitle, duration);
-        } else {
-            //implement logic here
-        }
-    }
-    public void editTrackLength(String title, long newDuration) {
-        if (tracks.containsKey(title)) {
-            tracks.put(title, newDuration);
-        } else {
-            //implement logic here
+            System.out.println("Track already exists");
         }
     }
 
-    public CD(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language,
-              float price, Map<String, Long> tracks) {
+    public void removeTrack(Track track) {
+        if (tracks.contains(track)) {
+            tracks.remove(track);
+        } else {
+            System.out.println("Track does not exist");
+        }
+
+    }
+
+    public CD(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language, float price, ArrayList<Track> tracks) {
         super(title, creators, releaseDate, genres, language, price);
-        this.tracks = new HashMap<>(tracks);
+        this.tracks = tracks;
     }
 }
+
+

@@ -1,4 +1,4 @@
-package app.model.store.interfaces;
+package app.model.store.interfaces.human;
 
 import app.model.credentials_info.Staff;
 import app.model.media.Media;
@@ -15,8 +15,11 @@ public class StaffInterface {
     }
 
     public void checkOut(Cart cart) {
-        cart.checkOut();
         staff.setPurchasesRegistered(staff.getPurchasesRegistered() + 1);
+        cart.getCustomer().setPoints(cart.getCustomer().getPoints() + cart.pointsEarned());
+        cart.checkOut();
+        System.out.println("Checkout successful");
+;
     }
     public ArrayList<Media> getStoreMedia(Store store) {
         return store.getMedia();

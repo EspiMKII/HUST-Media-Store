@@ -2,6 +2,7 @@ package app.model.credentials_info;
 
 import app.model.store.Store;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Staff {
@@ -23,10 +24,10 @@ public class Staff {
     private String position;
     private float salary;
 
-    private long purchasesRegistered;
+    private int purchasesRegistered;
     private int sessionsCompleted;
-    private float avgPurchasesPerSession;; // the 2 previous variables are used to calculate this one, which is why they won't have getters and setters
-    private long[] sessionsDone = new long[3]; // purchases sessions done this week, this month, and this year
+     // the 2 previous variables are used to calculate this one, which is why they won't have getters and setters
+    private int[] sessionsDone = new int[3]; // purchases sessions done this week, this month, and this year
 
     private Boolean managerPerm = false;
     
@@ -68,10 +69,10 @@ public class Staff {
         return salary;
     }
 
-    public long getPurchasesRegistered() {
+    public int getPurchasesRegistered() {
         return purchasesRegistered;
     }
-    public void setPurchasesRegistered(long purchasesRegistered) {
+    public void setPurchasesRegistered(int purchasesRegistered) {
         this.purchasesRegistered = purchasesRegistered;
     }
     public int getSessionsCompleted() {
@@ -82,16 +83,12 @@ public class Staff {
     }
 
     public float getAvgPurchasesPerSession() {
-        avgPurchasesPerSession = (float) purchasesRegistered / sessionsCompleted;
-        return avgPurchasesPerSession;
+        return (float) purchasesRegistered / sessionsCompleted;
     }
-    public void setAvgPurchasesPerSession(int avgPurchasesPerSession) {
-        this.avgPurchasesPerSession = avgPurchasesPerSession;
-    }
-    public long[] getSessionsDone() {
+    public int[] getSessionsDone() {
         return sessionsDone;
     }
-    public void setSessionsDone(long[] sessionsDone) {
+    public void setSessionsDone(int[] sessionsDone) {
         this.sessionsDone = sessionsDone;
     }
 
@@ -101,10 +98,30 @@ public class Staff {
     public void setManagerPerm(Boolean managerPerm) {
         this.managerPerm = managerPerm;
     }
+    public boolean isManager() {
+        return managerPerm;
+    }
 
-    public Staff(String email, String password, 
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", startingDate=" + startingDate +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", purchasesRegistered=" + purchasesRegistered +
+                ", sessionsCompleted=" + sessionsCompleted +
+                ", sessionsDone=" + Arrays.toString(sessionsDone) +
+                ", managerPerm=" + managerPerm +
+                '}';
+    }
+
+    public Staff(String email, String password,
                  String name, Date startingDate, String position, float salary,
-                 long purchasesRegistered, int sessionsCompleted, long[] sessionsDone) {
+                 int purchasesRegistered, int sessionsCompleted, int[] sessionsDone) {
         this.email = email;
         this.password = password;
 
@@ -115,7 +132,6 @@ public class Staff {
 
         this.purchasesRegistered = purchasesRegistered;
         this.sessionsCompleted = sessionsCompleted;
-        this.avgPurchasesPerSession = (int) (purchasesRegistered / sessionsCompleted);
         this.sessionsDone = sessionsDone;
     }
 }
