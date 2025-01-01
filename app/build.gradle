@@ -70,7 +70,7 @@ tasks.withType(Copy) {
 
 application {
     // Define the main class for the application.
-    mainClass = 'app.Main'
+    mainClass = 'UI.Main_starter'
 }
 
 tasks.named('test') {
