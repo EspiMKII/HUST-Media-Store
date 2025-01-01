@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Media {
+    private int id;
     private String title;
     private ArrayList<String> creators;
     private Date releaseDate;
@@ -19,6 +20,14 @@ public class Media {
         this.genres = genres;
         this.language = language;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {

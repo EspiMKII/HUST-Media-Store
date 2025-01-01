@@ -1,6 +1,7 @@
 package app.model.credentials_info;
 
 public class Customer {
+    private int id;
     private String name;
     private long phoneNumber;
     private int points;
@@ -20,6 +21,15 @@ public class Customer {
     public int getPoints() {
         return points;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setPoints(int points) {
         this.points = points;
     }

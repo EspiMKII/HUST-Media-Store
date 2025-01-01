@@ -5,6 +5,16 @@ import app.model.store.Store;
 import java.util.Date;
 
 public class Staff {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String email;
     private String password;
 
@@ -107,9 +117,5 @@ public class Staff {
         this.sessionsCompleted = sessionsCompleted;
         this.avgPurchasesPerSession = (int) (purchasesRegistered / sessionsCompleted);
         this.sessionsDone = sessionsDone;
-    }
-
-    public Store getStore() {
-        return Store.getInstance();
     }
 }

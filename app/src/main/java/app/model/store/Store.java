@@ -9,10 +9,7 @@ public class Store {
     private ArrayList<Media> media;
     private ArrayList<Customer> customers;
     private ArrayList<Staff> staff; // viewing and modifying the staff list is a manager only interaction
-
-    public static Store getInstance() {
-        return new Store(new ArrayList<Media>(), new ArrayList<Customer>(), new ArrayList<Staff>());
-    }
+    private ArrayList<Finances> finances;
 
     public ArrayList<Media> getMedia() {
         return media;
@@ -47,9 +44,18 @@ public class Store {
         this.staff = staff;
     }
 
-    public Store(ArrayList<Media> media, ArrayList<Customer> customers, ArrayList<Staff> staff) {
+    public ArrayList<Finances> getFinances() {
+        return finances;
+    }
+
+    public void setFinances(ArrayList<Finances> finances) {
+        this.finances = finances;
+    }
+
+    public Store(ArrayList<Media> media, ArrayList<Customer> customers, ArrayList<Staff> staff, ArrayList<Finances> finances) {
         this.media = media;
         this.customers = customers;
         this.staff = staff;
+        this.finances = finances;
     }
 }

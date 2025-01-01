@@ -3,6 +3,7 @@ package app.model.store.interfaces;
 import app.model.credentials_info.Staff;
 import app.model.media.Media;
 import app.model.store.Cart;
+import app.model.store.Store;
 
 import java.util.ArrayList;
 
@@ -17,8 +18,8 @@ public class StaffInterface {
         cart.checkOut();
         staff.setPurchasesRegistered(staff.getPurchasesRegistered() + 1);
     }
-    public ArrayList<Media> getStoreMedia() {
-        return staff.getStore().getMedia();
+    public ArrayList<Media> getStoreMedia(Store store) {
+        return store.getMedia();
     }
     public Staff returnSelf() {
         return staff;

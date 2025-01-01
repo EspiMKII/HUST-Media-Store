@@ -3,6 +3,7 @@
  */
 package app;
 import app.controller.sql.DBInitialize;
+import app.controller.sql.DBInterface;
 
 public class Main {
     public String getGreeting() {
@@ -13,10 +14,12 @@ public class Main {
         try {
             DBInitialize db = new DBInitialize();
             db.initializeDatabase();
+            System.out.println(DBInterface.pullTable("customer"));
         }
         catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
+
     }
 }

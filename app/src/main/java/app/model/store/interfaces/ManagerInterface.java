@@ -10,12 +10,12 @@ public class ManagerInterface extends StaffInterface {
         super(staff);
     }
 
-    public void addStaff(Staff staff) {
-        staff.getStore().getStaff().add(staff);
+    public void addStaff(Store store, Staff staff) {
+        store.getStaff().add(staff);
     }
 
-    public void removeStaff(Staff staff) {
-        staff.getStore().getStaff().remove(staff);
+    public void removeStaff(Store store, Staff staff) {
+        store.getStaff().remove(staff);
     }
 
     public ArrayList<Staff> getStaffList(Store store) {
