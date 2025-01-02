@@ -2,6 +2,7 @@ package app.view;
 
 import app.model.store.Store;
 import app.model.store.interfaces.human.ManagerInterface;
+import fxml.AddMediaScreenController;
 import fxml.ManagerScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,11 +29,11 @@ public class AddMediaScreen extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/EditMediaScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddMediaScreen.fxml"));
         Parent root = loader.load();
 
         // Pass the Store and ManagerInterface instance to the controller
-        ManagerScreenController controller = loader.getController();
+        AddMediaScreenController controller = loader.getController();
         controller.setStore(store);
         controller.setManagerInterface(managerInterface);
 

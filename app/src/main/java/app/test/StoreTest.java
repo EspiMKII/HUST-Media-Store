@@ -25,10 +25,10 @@ public class StoreTest {
         ArrayList<Media> media = new ArrayList<>();
 
         // Example instantiation of Book objects
-        Book book1 = new Book("The Great Gatsby", new ArrayList<>(List.of("F. Scott Fitzgerald")), new Date(1925, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 10.99f, 123);
-        Book book2 = new Book("To Kill a Mockingbird", new ArrayList<>(List.of("Harper Lee")), new Date(1960, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 11.99f, 281);
-        Book book3 = new Book("1984", new ArrayList<>(List.of("George Orwell")), new Date(1949, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 12.99f, 328);
-        Book book4 = new Book("The Catcher in the Rye", new ArrayList<>(List.of("J.D. Salinger")), new Date(1951, Calendar.JANUARY, 1), new ArrayList<>(List.of("Fiction")), "English", 13.99f, 214);
+        Book book1 = new Book("The Great Gatsby", new ArrayList<>(List.of("F. Scott Fitzgerald")), 1925, new ArrayList<>(List.of("Fiction")), "English", 10.99f, 123);
+        Book book2 = new Book("To Kill a Mockingbird", new ArrayList<>(List.of("Harper Lee")), 1960, new ArrayList<>(List.of("Fiction")), "English", 11.99f, 281);
+        Book book3 = new Book("1984", new ArrayList<>(List.of("George Orwell")), 1949, new ArrayList<>(List.of("Fiction")), "English", 12.99f, 328);
+        Book book4 = new Book("The Catcher in the Rye", new ArrayList<>(List.of("J.D. Salinger")), 1951, new ArrayList<>(List.of("Fiction")), "English", 13.99f, 214);
 
         Track track1 = new Track("Track 1", 321);
         Track track2 = new Track("Track 2", 322);
@@ -41,17 +41,17 @@ public class StoreTest {
         Track track9 = new Track("Track 9", 329);
 
         // Example instantiation of CD object
-        CD cd1 = new CD("The Dark Side of the Moon", new ArrayList<>(List.of("Pink Floyd")), new Date(1973, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 14.99f, new ArrayList<>(List.of(track1, track2, track3)));
-        CD cd2 = new CD("Back in Black", new ArrayList<>(List.of("AC/DC")), new Date(1980, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 15.99f, new ArrayList<>(List.of(track4, track5, track6)));
-        CD cd3 = new CD("Led Zeppelin IV", new ArrayList<>(List.of("Led Zeppelin")), new Date(1971, Calendar.JANUARY, 1), new ArrayList<>(List.of("Rock")), "English", 16.99f, new ArrayList<>(List.of(track7, track8, track9)));
+        CD cd1 = new CD("The Dark Side of the Moon", new ArrayList<>(List.of("Pink Floyd")), 1973, new ArrayList<>(List.of("Rock")), "English", 14.99f, new ArrayList<>(List.of(track1, track2, track3)));
+        CD cd2 = new CD("Back in Black", new ArrayList<>(List.of("AC/DC")), 1980, new ArrayList<>(List.of("Rock")), "English", 15.99f, new ArrayList<>(List.of(track4, track5, track6)));
+        CD cd3 = new CD("Led Zeppelin IV", new ArrayList<>(List.of("Led Zeppelin")), 1971, new ArrayList<>(List.of("Rock")), "English", 16.99f, new ArrayList<>(List.of(track7, track8, track9)));
 
 
         // Example instantiation of DVD objects
 
-        DVD dvd1 = new DVD("The Shawshank Redemption", new ArrayList<>(List.of("Frank Darabont")), new Date(1994, Calendar.JANUARY, 1), new ArrayList<>(List.of("Drama")), "English", 17.99f, 142);
-        DVD dvd2 = new DVD("The Godfather", new ArrayList<>(List.of("Francis Ford Coppola")), new Date(1972, Calendar.JANUARY, 1), new ArrayList<>(List.of("Drama")), "English", 18.99f, 175);
-        DVD dvd3 = new DVD("The Dark Knight", new ArrayList<>(List.of("Christopher Nolan")), new Date(2008, Calendar.JANUARY, 1), new ArrayList<>(List.of("Action")), "English", 19.99f, 152);
-        DVD dvd4 = new DVD("Pulp Fiction", new ArrayList<>(List.of("Quentin Tarantino")), new Date(1994, Calendar.JANUARY, 1), new ArrayList<>(List.of("Crime")), "English", 20.99f, 154);
+        DVD dvd1 = new DVD("The Shawshank Redemption", new ArrayList<>(List.of("Frank Darabont")), 1994, new ArrayList<>(List.of("Drama")), "English", 17.99f, 142);
+        DVD dvd2 = new DVD("The Godfather", new ArrayList<>(List.of("Francis Ford Coppola")), 1972, new ArrayList<>(List.of("Drama")), "English", 18.99f, 175);
+        DVD dvd3 = new DVD("The Dark Knight", new ArrayList<>(List.of("Christopher Nolan")), 2008, new ArrayList<>(List.of("Action")), "English", 19.99f, 152);
+        DVD dvd4 = new DVD("Pulp Fiction", new ArrayList<>(List.of("Quentin Tarantino")), 1984, new ArrayList<>(List.of("Crime")), "English", 20.99f, 154);
 
 
 
@@ -73,8 +73,8 @@ public class StoreTest {
 
         ArrayList<Staff> staff = new ArrayList<>();
 
-        Staff staff1 = new Staff("john@hms.com", "password", "John", new Date(2024, Calendar.JANUARY, 2024), "Staff", 232, 0, 0, new int[] {1,1,1});
-        Manager manager1 = new Manager("josh@hms.com", "password", "John", new Date(2024, Calendar.JANUARY, 2024), "Staff", 232, 0, 0, new int[] {1,1,1});
+        Staff staff1 = new Staff("john@hms.com", "password", "John", 2024, "Staff", 232, 0, 0, new int[] {1,1,1});
+        Manager manager1 = new Manager("josh@hms.com", "password", "Josh", 2023, "Staff", 232, 0, 0, new int[] {1,1,1});
 
 
         staff.add(staff1);

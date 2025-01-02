@@ -358,7 +358,7 @@
                                  <content>
                                     <AnchorPane prefHeight="798.0" prefWidth="1000.0">
                                        <children>
-                                          <TableView layoutX="5.0" layoutY="104.0" prefHeight="591.0" prefWidth="793.0">
+                                          <TableView fx:id="storeManagerTable" layoutX="5.0" layoutY="104.0" prefHeight="591.0" prefWidth="793.0">
                                              <columns>
                                                 <TableColumn fx:id="colStoreManagerName" prefWidth="273.0" text="Name" />
                                                 <TableColumn fx:id="colStoreManagerType" prefWidth="71.0" text="Type" />
@@ -405,6 +405,7 @@
                                                 <Font size="21.0" />
                                              </font>
                                           </Text>
+                                          <Button fx:id="managerStoreRefresh" layoutX="930.0" layoutY="702.0" mnemonicParsing="false" onAction="#onRefreshPressed" text="Refresh" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -446,6 +447,7 @@
                                                 <Font size="21.0" />
                                              </font>
                                           </Text>
+                                          <Button fx:id="managerStaffRefresh2" layoutX="943.0" layoutY="597.0" mnemonicParsing="false" onAction="#onRefreshPressed" text="Refresh" />
                                        </children></AnchorPane>
                               </content>
                             </Tab>

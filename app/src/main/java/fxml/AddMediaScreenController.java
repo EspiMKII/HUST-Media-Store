@@ -11,7 +11,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -26,7 +25,7 @@ public class AddMediaScreenController {
     private TextField addAuthors;
 
     @FXML
-    private DatePicker addDate;
+    private TextField addDate;
 
     @FXML
     private TextField addGenre;
@@ -79,16 +78,16 @@ public class AddMediaScreenController {
         String genre = addGenre.getText();
         String language = addLanguage.getText();
         float price = Float.parseFloat(addPrice.getText());
-        Date date = java.sql.Date.valueOf(addDate.getValue());
+        int year = Integer.parseInt(addDate.getText());
 
         if (addSelectionBook.isSelected()) {
             int pages = Integer.parseInt(addSpecial.getText());
-            Book book = new Book(title, new ArrayList<>(List.of(authors.split(","))), date, new ArrayList<>(List.of(genre.split(","))), language, price, pages);
+            Book book = new Book(title, new ArrayList<>(List.of(authors.split(","))), year, new ArrayList<>(List.of(genre.split(","))), language, price, pages);
             managerInterface.addMedia(store, book);
             storeItems.add(book);
         } else if (addSelectionDVD.isSelected()) {
             int duration = Integer.parseInt(addSpecial.getText());
-            DVD dvd = new DVD(title, new ArrayList<>(List.of(authors.split(","))), date, new ArrayList<>(List.of(genre.split(","))), language, price, duration);
+            DVD dvd = new DVD(title, new ArrayList<>(List.of(authors.split(","))), year, new ArrayList<>(List.of(genre.split(","))), language, price, duration);
             managerInterface.addMedia(store, dvd);
             storeItems.add(dvd);
         } else if (addSelectionCD.isSelected()) {
@@ -99,7 +98,7 @@ public class AddMediaScreenController {
                 String[] trackInfo = track.split(":");
                 trackArrayList.add(new Track(trackInfo[0], Integer.parseInt(trackInfo[1])));
             }
-            CD cd = new CD(title, new ArrayList<>(List.of(authors)), date, new ArrayList<>(List.of(genre.split(","))), language, price, trackArrayList);
+            CD cd = new CD(title, new ArrayList<>(List.of(authors)), year, new ArrayList<>(List.of(genre.split(","))), language, price, trackArrayList);
             managerInterface.addMedia(store, cd);
             storeItems.add(cd);
         }

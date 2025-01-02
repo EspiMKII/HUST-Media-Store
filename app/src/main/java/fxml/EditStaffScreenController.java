@@ -26,7 +26,7 @@ public class EditStaffScreenController {
     private Button editStaffButton;
 
     @FXML
-    private DatePicker editStaffDate;
+    private TextField editStaffDate;
 
     @FXML
     private TextField editStaffEmail;
@@ -68,7 +68,7 @@ public class EditStaffScreenController {
         editStaffEmail.setText(selectedStaff.getEmail());
         editStaffPassword.setText(selectedStaff.getPassword());
         editStaffSalary.setText(String.valueOf(selectedStaff.getSalary()));
-        editStaffDate.setValue(LocalDate.parse(selectedStaff.getStartingDate().toString()));
+        editStaffDate.setText(Integer.toString(selectedStaff.getStartingYear()));
     }
 
     @FXML
@@ -77,8 +77,7 @@ public class EditStaffScreenController {
         String email = editStaffEmail.getText();
         String password = editStaffPassword.getText();
         float salary = Float.parseFloat(editStaffSalary.getText());
-        LocalDate localDate = editStaffDate.getValue();
-        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        int date = Integer.parseInt(editStaffDate.getText());
 
         Staff newStaff = new Staff(email, password, name, date, "Staff", salary, 0, 0 , new int[] {0,0,0});
         store.updateStaff(selectedStaff, newStaff);

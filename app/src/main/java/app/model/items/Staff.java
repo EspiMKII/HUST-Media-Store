@@ -1,7 +1,6 @@
 package app.model.items;
 
 import java.util.Arrays;
-import java.util.Date;
 
 public class Staff {
     private int id;
@@ -18,7 +17,7 @@ public class Staff {
     private String password;
 
     private String name;
-    private Date startingDate;
+    private int startingYear;
     private String position;
     private float salary;
 
@@ -51,11 +50,11 @@ public class Staff {
     public void setName(String name) {
         this.name = name;
     }
-    public Date getStartingDate() {
-        return startingDate;
+    public int getStartingYear() {
+        return startingYear;
     }
-    public void setStartingDate(Date startingDate) {
-        this.startingDate = startingDate;
+    public void setStartingYear(int startingYear) {
+        this.startingYear = startingYear;
     }
     public String getPosition() {
         return position;
@@ -87,10 +86,10 @@ public class Staff {
         return sessionsDone;
     }
     public void addSession() {
-        (this.sessionsDone[0])++;
-        (this.sessionsDone[1])++;
-        (this.sessionsDone[2])++;
-        (this.sessionsCompleted)++;
+        this.sessionsDone[0] = sessionsDone[0] + 1;
+        this.sessionsDone[1] = sessionsDone[1] + 1;
+        this.sessionsDone[2] = sessionsDone[2] + 1;
+        this.sessionsCompleted = sessionsCompleted + 1;
     }
 
     public Boolean getManagerPerm() {
@@ -110,7 +109,7 @@ public class Staff {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", startingDate=" + startingDate +
+                ", startingYear=" + startingYear +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
                 ", purchasesRegistered=" + purchasesRegistered +
@@ -121,13 +120,13 @@ public class Staff {
     }
 
     public Staff(String email, String password,
-                 String name, Date startingDate, String position, float salary,
+                 String name, int startingYear, String position, float salary,
                  int purchasesRegistered, int sessionsCompleted, int[] sessionsDone) {
         this.email = email;
         this.password = password;
 
         this.name = name;
-        this.startingDate = startingDate;
+        this.startingYear = startingYear;
         this.position = position;
         this.salary = salary;
 

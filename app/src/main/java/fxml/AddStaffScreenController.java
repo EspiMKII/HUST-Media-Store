@@ -31,7 +31,7 @@ public class AddStaffScreenController {
     private Button addStaffButton;
 
     @FXML
-    private DatePicker addStaffDate;
+    private TextField addStaffDate;
 
     @FXML
     private TextField addStaffEmail;
@@ -68,15 +68,15 @@ public class AddStaffScreenController {
 
 
 
+
     @FXML
     void onAddStaffPressed(ActionEvent event) {
         String name = addStaffName.getText();
         String email = addStaffEmail.getText();
         String password = addStaffPassword.getText();
         float salary = Float.parseFloat(addStaffSalary.getText());
-        LocalDate localDate = addStaffDate.getValue();
-        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        Staff newStaff = new Staff(email, password, name, date, "Staff", salary, 0, 0 , new int[] {0,0,0});        managerInterface.addStaff(store, newStaff);
+        int year = Integer.parseInt(addStaffDate.getText());
+        Staff newStaff = new Staff(email, password, name, year, "Staff", salary, 0, 0 , new int[] {0,0,0});        managerInterface.addStaff(store, newStaff);
         storeStaff.add(newStaff);
 
     }

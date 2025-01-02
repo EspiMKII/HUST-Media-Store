@@ -33,8 +33,8 @@ public class CD extends Media {
         return tracks.size();
     }
 
-    public CD(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language, float price, ArrayList<Track> tracks) {
-        super(title, creators, releaseDate, genres, language, price);
+    public CD(String title, ArrayList<String> creators, int releaseYear, ArrayList<String> genres, String language, float price, ArrayList<Track> tracks) {
+        super(title, creators, releaseYear, genres, language, price);
         this.tracks = tracks;
     }
 }

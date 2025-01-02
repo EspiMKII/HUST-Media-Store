@@ -2,17 +2,15 @@ package app.view;
 
 import app.model.store.Store;
 import app.model.store.interfaces.human.ManagerInterface;
-import fxml.ManagerScreenController;
+import fxml.AddStaffScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class AddStaffScreen extends Application {
 
     private static Store store;
-
     private static ManagerInterface managerInterface;
 
     public static void begin() {
@@ -20,28 +18,25 @@ public class AddStaffScreen extends Application {
     }
 
     public static void setStore(Store store) {
-        AddMediaScreen.setStore(store);
+        AddStaffScreen.store = store;
     }
 
     public static void setManagerInterface(ManagerInterface managerInterface) {
-        AddMediaScreen.setManagerInterface(managerInterface);
+        AddStaffScreen.managerInterface = managerInterface;
     }
 
+    @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddStaffScreen.fxml"));
-        Parent root = loader.load();
+        Scene scene = new Scene(loader.load());
 
         // Pass the Store and ManagerInterface instance to the controller
-        ManagerScreenController controller = loader.getController();
+        AddStaffScreenController controller = loader.getController();
         controller.setStore(store);
         controller.setManagerInterface(managerInterface);
 
         primaryStage.setTitle("Add Staff");
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-
-
-
 }

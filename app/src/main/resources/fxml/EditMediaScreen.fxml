@@ -36,9 +36,9 @@
             </Label>
             <ButtonBar fx:id="addTypeSelector" prefHeight="30.0" prefWidth="401.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
               <buttons>
-                  <RadioButton fx:id="addSelectionBook" mnemonicParsing="false" text="Book" />
-                  <RadioButton fx:id="addSelectionCD" mnemonicParsing="false" text="CD" />
-                  <RadioButton fx:id="addSelectionDVD" mnemonicParsing="false" text="DVD" />
+                  <RadioButton fx:id="editSelectionBook" mnemonicParsing="false" text="Book" />
+                  <RadioButton fx:id="editSelectionCD" mnemonicParsing="false" text="CD" />
+                  <RadioButton fx:id="editSelectionDVD" mnemonicParsing="false" text="DVD" />
               </buttons>
                <GridPane.margin>
                   <Insets right="20.0" />

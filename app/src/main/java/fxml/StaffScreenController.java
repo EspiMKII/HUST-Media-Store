@@ -212,7 +212,7 @@ public class StaffScreenController {
 
     private void updateStaffDetails(Staff staff) {
         staffName.setText(staff.getName());
-        staffDate.setText(staff.getStartingDate().toString());
+        staffDate.setText(String.valueOf(staff.getStartingYear()));
         staffPosition.setText(staff.getPosition());
         staffSalary.setText(String.format("%.2f", staff.getSalary()));
     }

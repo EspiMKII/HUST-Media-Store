@@ -17,12 +17,12 @@ public abstract class Media {
     private ArrayList<String> authors;
 
 
-    public Media(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language, float price) {
+    public Media(String title, ArrayList<String> creators, int releaseYear, ArrayList<String> genres, String language, float price) {
         this.title = new SimpleStringProperty(title);
         this.authors = creators;
         this.price = new SimpleFloatProperty(price);
         this.type = new SimpleStringProperty(this.getClass().getSimpleName().toLowerCase());
-        this.year = new SimpleIntegerProperty(releaseDate.getYear()); // Adjust for Date year offset
+        this.year = new SimpleIntegerProperty(releaseYear);
         this.genre = new SimpleStringProperty(String.join(", ", genres));
         this.language = new SimpleStringProperty(language);
     }

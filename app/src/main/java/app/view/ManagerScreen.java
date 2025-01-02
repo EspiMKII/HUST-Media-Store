@@ -30,6 +30,7 @@ public class ManagerScreen {
         controller.setStore(store);
         controller.setManagerInterface(managerInterface);
 
+
         primaryStage.setTitle("Manager Screen");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

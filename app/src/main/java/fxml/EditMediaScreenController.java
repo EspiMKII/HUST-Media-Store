@@ -96,15 +96,15 @@ public class EditMediaScreenController {
         String genre = editGenre.getText();
         String language = editLanguage.getText();
         float price = Float.parseFloat(editPrice.getText());
-        Date date = new Date(Integer.parseInt(editDate.getText()),1,1);
+        int year = (Integer.parseInt(editDate.getText()));
 
         if (editSelectionBook.isSelected()) {
             int pages = Integer.parseInt(editSpecial.getText());
-            Book book = new Book(title, new ArrayList<>(List.of(authors.split(","))), date, new ArrayList<>(List.of(genre.split(","))), language, price, pages);
+            Book book = new Book(title, new ArrayList<>(List.of(authors.split(","))), year, new ArrayList<>(List.of(genre.split(","))), language, price, pages);
             store.updateMedia(selectedMedia, book);
         } else if (editSelectionDVD.isSelected()) {
             int duration = Integer.parseInt(editSpecial.getText());
-            DVD dvd = new DVD(title, new ArrayList<>(List.of(authors.split(","))), date, new ArrayList<>(List.of(genre.split(","))), language, price, duration);
+            DVD dvd = new DVD(title, new ArrayList<>(List.of(authors.split(","))), year, new ArrayList<>(List.of(genre.split(","))), language, price, duration);
             store.updateMedia(selectedMedia, dvd);
         } else if (editSelectionCD.isSelected()) {
             String tracks = (editSpecial.getText());
@@ -114,7 +114,7 @@ public class EditMediaScreenController {
                 String[] trackInfo = track.split(":");
                 trackArrayList.add(new Track(trackInfo[0], Integer.parseInt(trackInfo[1])));
             }
-            CD cd = new CD(title, new ArrayList<>(List.of(authors)), date, new ArrayList<>(List.of(genre.split(","))), language, price, trackArrayList);
+            CD cd = new CD(title, new ArrayList<>(List.of(authors)), year, new ArrayList<>(List.of(genre.split(","))), language, price, trackArrayList);
             store.updateMedia(selectedMedia, cd);
         }
     }
