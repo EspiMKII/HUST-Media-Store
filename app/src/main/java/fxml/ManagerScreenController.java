@@ -9,10 +9,7 @@ import app.model.media.Media;
 import app.model.store.Cart;
 import app.model.store.Store;
 import app.model.store.interfaces.human.ManagerInterface;
-import app.view.AddMediaScreen;
-import app.view.AddStaffScreen;
-import app.view.EditMediaScreen;
-import app.view.EditStaffScreen;
+import app.view.*;
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -304,10 +301,11 @@ public class ManagerScreenController {
     @FXML
     void onStoreAddItemPressed(ActionEvent event) {
         try {
-            AddMediaScreen.setStore(store);
-            AddMediaScreen.setManagerInterface(managerInterface);
             AddMediaScreen addMediaScreen = new AddMediaScreen();
-            addMediaScreen.start(new Stage());
+            AddMediaScreen.setStore(store);
+            AddMediaScreen.setManagerInterface((ManagerInterface) managerInterface);
+            Stage AddMediaStage = new Stage();
+            AddMediaScreen.start(AddMediaStage);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -316,10 +314,11 @@ public class ManagerScreenController {
     @FXML
     void onStoreEditItemPressed(ActionEvent event) {
         try {
-            EditMediaScreen.setStore(store);
-            EditMediaScreen.setManagerInterface(managerInterface);
             EditMediaScreen editMediaScreen = new EditMediaScreen();
-            editMediaScreen.start(new Stage());
+            EditMediaScreen.setStore(store);
+            EditMediaScreen.setManagerInterface((ManagerInterface) managerInterface);
+            Stage editMediaStage = new Stage();
+            EditMediaScreen.start(editMediaStage);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -372,25 +371,27 @@ public class ManagerScreenController {
         updateStaffPerformance(managerInterface.returnSelf());
         updateStaffPerformance(managerInterface.returnSelf());
     }
-
+    @FXML
     void onManagerAddStaffPressed(ActionEvent event) {
         try {
-            AddStaffScreen.setStore(store);
-            AddStaffScreen.setManagerInterface(managerInterface);
             AddStaffScreen addStaffScreen = new AddStaffScreen();
-            addStaffScreen.start(new Stage());
+            AddStaffScreen.setStore(store);
+            AddStaffScreen.setManagerInterface((ManagerInterface) managerInterface);
+            Stage addStaffStage = new Stage();
+            AddStaffScreen.start(addStaffStage);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
-    void onStoreEditStaffPressed(ActionEvent event) {
+    @FXML
+    void onManagerEditStaffPressed(ActionEvent event) {
         try {
-            EditStaffScreen.setStore(store);
-            EditStaffScreen.setManagerInterface(managerInterface);
             EditStaffScreen editStaffScreen = new EditStaffScreen();
-            editStaffScreen.start(new Stage());
+            EditStaffScreen.setStore(store);
+            EditStaffScreen.setManagerInterface((ManagerInterface) managerInterface);
+            Stage editStaffStage = new Stage();
+            EditStaffScreen.start(editStaffStage);
         } catch (Exception e) {
             e.printStackTrace();
         }
