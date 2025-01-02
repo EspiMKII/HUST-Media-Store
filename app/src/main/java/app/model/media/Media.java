@@ -14,19 +14,29 @@ public abstract class Media {
     private SimpleIntegerProperty year;
     private SimpleStringProperty genre;
     private SimpleStringProperty language;
+    private ArrayList<String> authors;
 
 
     public Media(String title, ArrayList<String> creators, Date releaseDate, ArrayList<String> genres, String language, float price) {
         this.title = new SimpleStringProperty(title);
+        this.authors = creators;
         this.price = new SimpleFloatProperty(price);
         this.type = new SimpleStringProperty(this.getClass().getSimpleName().toLowerCase());
-        this.year = new SimpleIntegerProperty(releaseDate.getYear() + 1900); // Adjust for Date year offset
+        this.year = new SimpleIntegerProperty(releaseDate.getYear()); // Adjust for Date year offset
         this.genre = new SimpleStringProperty(String.join(", ", genres));
         this.language = new SimpleStringProperty(language);
     }
 
     public String getLanguage() {
         return language.get();
+    }
+
+    public ArrayList<String> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(ArrayList<String> authors) {
+        this.authors = authors;
     }
 
     public SimpleStringProperty languageProperty() {

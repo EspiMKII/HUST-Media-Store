@@ -15,6 +15,8 @@ public class ManagerInterface extends StaffInterface {
         store.getStaff().add(staff);
     }
 
+
+
     public void removeStaff(Store store, Staff staff) {
         store.getStaff().remove(staff);
     }

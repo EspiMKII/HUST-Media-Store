@@ -7,15 +7,20 @@ import app.model.media.CD;
 import app.model.media.DVD;
 import app.model.media.Media;
 import app.model.store.Cart;
-import app.model.store.Finances;
 import app.model.store.Store;
 import app.model.store.interfaces.human.ManagerInterface;
+import app.view.AddMediaScreen;
+import app.view.AddStaffScreen;
+import app.view.EditMediaScreen;
+import app.view.EditStaffScreen;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -23,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.util.Date;
 
@@ -78,7 +84,7 @@ public class ManagerScreenController {
     private TableColumn<Staff, Integer> colManagerPurchases;
 
     @FXML
-    private TableColumn<Staff, Integer> colManagerSalary;
+    private TableColumn<Staff, Float> colManagerSalary;
 
     @FXML
     private TableColumn<Staff, Integer> colManagerSessions;
@@ -156,11 +162,7 @@ public class ManagerScreenController {
     private Button managerEditStaff;
 
     @FXML
-    private TextField managerFilterAuthor;
-
-    @FXML
-    private TextField managerFilterLanguage;
-
+    private TextField managerFilterGenre;
     @FXML
     private TextField managerFilterName;
 
@@ -178,7 +180,7 @@ public class ManagerScreenController {
     private Text managerStaffStatus;
 
     @FXML
-    private TableView<?> managerTable;
+    private TableView<Staff> managerTable;
 
     @FXML
     private Button registerButton;
@@ -243,6 +245,8 @@ public class ManagerScreenController {
     private ManagerInterface managerInterface;
     private Cart currentCart = new Cart(new Customer("", 0, 0));
     private ObservableList<Media> cartItems = FXCollections.observableArrayList();
+    private ObservableList<Staff> storeStaff = FXCollections.observableArrayList();
+
 
 
     @FXML
@@ -253,6 +257,15 @@ public class ManagerScreenController {
         colCartType.setCellValueFactory(new PropertyValueFactory<>("type"));
 
         cartTable.setItems(cartItems);
+
+        colStoreManagerName.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colStoreManagerType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colStoreManagerYear.setCellValueFactory(new PropertyValueFactory<>("year"));
+        colStoreManagerGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        colStoreManagerPages.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue() instanceof Book ? ((Book) cellData.getValue()).getPages() : 0).asObject());
+        colStoreManagerLength.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue() instanceof DVD ? (int) ((DVD) cellData.getValue()).getDuration() : 0).asObject());
+        colStoreManagerTracks.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue() instanceof CD ? ((CD) cellData.getValue()).getTracksAmount() : 0).asObject());
+        colStoreManagerPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         colStoreName.setCellValueFactory(new PropertyValueFactory<>("title"));
         colStoreType.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -265,13 +278,77 @@ public class ManagerScreenController {
 
         storeTable.setItems(storeItems);
 
+        colManagerName.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+        colManagerDate.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getStartingDate()));
+        colManagerPosition.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getPosition()));
+        colManagerPurchases.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getPurchasesRegistered()).asObject());
+        colManagerSessions.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getSessionsCompleted()).asObject());
+        colManagerSessionsWeek.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getSessionsDone()[0]).asObject());
+        colManagerAverage.setCellValueFactory(cellData -> new SimpleFloatProperty(cellData.getValue().getAvgPurchasesPerSession()).asObject());
+        colManagerSalary.setCellValueFactory(cellData -> new SimpleFloatProperty(cellData.getValue().getSalary()).asObject());
+
+        managerTable.setItems(storeStaff);
+
         storeFilterName.textProperty().addListener((observable, oldValue, newValue) -> filterStoreItems());
         storeFilterType.textProperty().addListener((observable, oldValue, newValue) -> filterStoreItems());
         storeFilterGenre.textProperty().addListener((observable, oldValue, newValue) -> filterStoreItems());
 
+        managerFilterName.textProperty().addListener((observable, oldValue, newValue) -> filterStoreItems());
+        managerFilterType.textProperty().addListener((observable, oldValue, newValue) -> filterStoreItems());
+        managerFilterGenre.textProperty().addListener((observable, oldValue, newValue) -> filterStoreItems());
+
         updateCartDetails();
         Thread.sleep(1000);
     }
+
+    @FXML
+    void onStoreAddItemPressed(ActionEvent event) {
+        try {
+            AddMediaScreen.setStore(store);
+            AddMediaScreen.setManagerInterface(managerInterface);
+            AddMediaScreen addMediaScreen = new AddMediaScreen();
+            addMediaScreen.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onStoreEditItemPressed(ActionEvent event) {
+        try {
+            EditMediaScreen.setStore(store);
+            EditMediaScreen.setManagerInterface(managerInterface);
+            EditMediaScreen editMediaScreen = new EditMediaScreen();
+            editMediaScreen.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onManagerRemoveStaffPressed(ActionEvent event) {
+        Staff selectedStaff = managerTable.getSelectionModel().getSelectedItem();
+        if (selectedStaff != null) {
+            store.removeStaff(selectedStaff);
+            storeStaff.remove(selectedStaff);
+            managerStaffStatus.setText("Staff removed successfully.");
+        } else {
+            managerStaffStatus.setText("No staff selected.");
+        }
+    }
+
+    @FXML
+    void onStoreRemoveItemPressed(ActionEvent event) {
+        Media selectedItem = storeTable.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            store.removeMedia(selectedItem);
+            storeItems.remove(selectedItem);
+            storeStatus.setText("Item removed from store");
+        } else {
+            storeStatus.setText("No item selected");
+        }
+    }
+
     private void filterStoreItems() {
         String filterName = storeFilterName.getText().toLowerCase();
         String filterType = storeFilterType.getText().toLowerCase();
@@ -294,6 +371,29 @@ public class ManagerScreenController {
         cartItems.clear();
         updateStaffPerformance(managerInterface.returnSelf());
         updateStaffPerformance(managerInterface.returnSelf());
+    }
+
+    void onManagerAddStaffPressed(ActionEvent event) {
+        try {
+            AddStaffScreen.setStore(store);
+            AddStaffScreen.setManagerInterface(managerInterface);
+            AddStaffScreen addStaffScreen = new AddStaffScreen();
+            addStaffScreen.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    void onStoreEditStaffPressed(ActionEvent event) {
+        try {
+            EditStaffScreen.setStore(store);
+            EditStaffScreen.setManagerInterface(managerInterface);
+            EditStaffScreen editStaffScreen = new EditStaffScreen();
+            editStaffScreen.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

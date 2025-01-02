@@ -104,4 +104,17 @@ public class Store {
         return null;
     }
 
+    public void updateMedia(Media selectedMedia, Media newMedia) {
+        int index = media.indexOf(selectedMedia);
+        media.set(index, newMedia);
+    }
+
+    public void updateStaff(Staff selectedStaff, Staff newStaff) {
+        int index = staff.indexOf(selectedStaff);
+        staff.set(index, newStaff);
+    }
+
+    public void removeStaff(Staff selectedStaff) {
+        staff.remove(selectedStaff);
+    }
 }
